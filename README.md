@@ -15,13 +15,11 @@ Crea un entorno virtual:
 
 python -m venv env
 .\env\Scripts\activate     # En Windows
-# source env/bin/activate  # En Linux o macOS
-
+source env/bin/activate  # En Linux o macOS
 
 Instala las dependencias:
 
 pip install -r requirements.txt
-
 
 Si no tienes ese archivo, puedes instalar manualmente:
 

@@ -1,4 +1,4 @@
-from rest_framework import viewsets, status
+from rest_framework import viewsets, generics
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.db.models import Avg
@@ -6,6 +6,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import OrderingFilter, SearchFilter
 from .models import Autor, Libro, Resena
 from .serializers import AutorSerializer, LibroSerializer, ResenaSerializer
+from .pagination import LibroPagination
 
 class AutorViewSet(viewsets.ModelViewSet):
     queryset = Autor.objects.all()
@@ -18,6 +19,7 @@ class AutorViewSet(viewsets.ModelViewSet):
 class LibroViewSet(viewsets.ModelViewSet):
     queryset = Libro.objects.all()
     serializer_class = LibroSerializer
+    pagination_class = LibroPagination
     filter_backends = [DjangoFilterBackend, OrderingFilter, SearchFilter]
     filterset_fields = ['autor', 'fecha_publicacion']
     search_fields = ['titulo', 'autor__nombre']

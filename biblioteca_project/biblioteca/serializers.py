@@ -21,4 +21,4 @@ class LibroSerializer(serializers.ModelSerializer):
 class AutorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Autor
-        fields = ['id', 'nombre', 'nacionalidad', 'biografia']
+        fields = ['id', 'nombre', 'nacionalidad']
